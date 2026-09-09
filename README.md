@@ -6,21 +6,69 @@ A Quantum Machine Learning based face recognition project that implements and co
 
 
 
-\- \*\*Variational Quantum Classifier (VQC)\*\*
+\- Variational Quantum Classifier (VQC)
 
-\- \*\*Quantum Kernel + Support Vector Machine (SVM)\*\*
-
-
-
-\## 🎯 Objective
+\- Quantum Kernel with Support Vector Machine (SVM)
 
 
 
-To explore and compare quantum machine learning approaches for face recognition using image preprocessing, dimensionality reduction, quantum circuits, and classical machine learning.
+\## Overview
 
 
 
-\## 🧠 Approaches
+This project explores the application of Quantum Machine Learning techniques to face image classification and compares the performance of two different quantum approaches.
+
+
+
+\## Dataset
+
+
+
+A custom face image dataset was used for the experiments.
+
+
+
+\- Number of classes: 2
+
+\- Images per class: approximately 40
+
+\- Total images: approximately 80
+
+
+
+The dataset is not included in this repository.
+
+
+
+The expected dataset structure is:
+
+
+
+&#x20;   dataset/
+
+&#x20;   ├── Person\_1/
+
+&#x20;   │   ├── image1.jpg
+
+&#x20;   │   ├── image2.jpg
+
+&#x20;   │   └── ...
+
+&#x20;   └── Person\_2/
+
+&#x20;       ├── image1.jpg
+
+&#x20;       ├── image2.jpg
+
+&#x20;       └── ...
+
+
+
+The images are converted to grayscale, resized, and transformed into numerical features before being used by the quantum models.
+
+
+
+\## Methods
 
 
 
@@ -28,11 +76,43 @@ To explore and compare quantum machine learning approaches for face recognition 
 
 
 
-\*\*Workflow:\*\*
+The first approach uses a Variational Quantum Circuit for face classification.
 
 
 
-Face Image → Grayscale → Resize → Feature Extraction → Feature Scaling → Quantum Circuit → VQC → Prediction
+Workflow:
+
+
+
+&#x20;   Face Image
+
+&#x20;       ↓
+
+&#x20;   Grayscale Conversion
+
+&#x20;       ↓
+
+&#x20;   Image Resizing
+
+&#x20;       ↓
+
+&#x20;   Feature Extraction
+
+&#x20;       ↓
+
+&#x20;   Feature Scaling
+
+&#x20;       ↓
+
+&#x20;   Quantum Circuit
+
+&#x20;       ↓
+
+&#x20;   VQC
+
+&#x20;       ↓
+
+&#x20;   Prediction
 
 
 
@@ -40,139 +120,151 @@ Face Image → Grayscale → Resize → Feature Extraction → Feature Scaling �
 
 
 
-\*\*Workflow:\*\*
+The second approach uses a quantum kernel to map image features into a quantum feature space. The resulting kernel is then used with an SVM classifier.
 
 
 
-Face Image → Grayscale → Resize → Feature Extraction → PCA → Quantum Kernel → SVM → Prediction
+Workflow:
 
 
 
-\## 📊 Dataset
+&#x20;   Face Image
 
+&#x20;       ↓
 
+&#x20;   Grayscale Conversion
 
-The project uses a \*\*custom face image dataset\*\* containing \*\*2 classes\*\*, with approximately \*\*40 images per class\*\*.
+&#x20;       ↓
 
+&#x20;   Image Resizing
 
+&#x20;       ↓
 
-The dataset is \*\*not included in this repository\*\*.
+&#x20;   Feature Extraction
 
+&#x20;       ↓
 
+&#x20;   PCA
 
-Expected structure:
+&#x20;       ↓
 
+&#x20;   Quantum Kernel
 
+&#x20;       ↓
 
-```text
+&#x20;   SVM
 
-dataset/
+&#x20;       ↓
 
-├── Person\_1/
+&#x20;   Prediction
 
-│   ├── image1.jpg
 
-│   ├── image2.jpg
 
-│   └── ...
+\## Results
 
-└── Person\_2/
 
-&#x20;   ├── image1.jpg
 
-&#x20;   ├── image2.jpg
+The two approaches were evaluated using accuracy and AUC, along with confusion matrices, ROC curves, and precision-recall curves.
 
-&#x20;   └── ...
 
 
+| Method | Accuracy | AUC |
 
-The images are converted to grayscale, resized, and transformed into numerical features before being passed to the quantum models.
+| --- | ---: | ---: |
 
+| VQC | 70% | 0.6689 |
 
+| Quantum Kernel + SVM | 60% | 0.6044 |
 
-📈 Results
 
-Method	Accuracy	AUC
 
-VQC	70%	0.6689
+The VQC approach achieved better performance on the selected dataset.
 
-Quantum Kernel + SVM	60%	0.6044
 
 
+\## Project Structure
 
-VQC achieved better performance on the selected dataset.
 
 
+&#x20;   Face-Recognition-Quantum/
 
-The repository also contains the generated evaluation and comparison visualizations.
+&#x20;   ├── method1-vqc/
 
+&#x20;   │   ├── preprocess.py
 
+&#x20;   │   ├── quantum\_model.py
 
-📁 Project Structure
+&#x20;   │   ├── train.py
 
-Face-Recognition-Quantum/
+&#x20;   │   ├── live\_test.py
 
-├── method1-vqc/
+&#x20;   │   ├── quantum\_model.pkl
 
-│   ├── preprocess.py
+&#x20;   │   └── scale.pkl
 
-│   ├── quantum\_model.py
+&#x20;   │
 
-│   ├── train.py
+&#x20;   ├── method2-qkernel/
 
-│   └── live\_test.py
+&#x20;   │   ├── preprocess\_kernel.py
 
-│
+&#x20;   │   ├── quantum\_kernel.py
 
-├── method2-qkernel/
+&#x20;   │   ├── train\_kernel.py
 
-│   ├── preprocess\_kernel.py
+&#x20;   │   ├── test\_kernel\_live.py
 
-│   ├── quantum\_kernel.py
+&#x20;   │   ├── plot\_results.py
 
-│   ├── train\_kernel.py
+&#x20;   │   ├── kernel\_model.pkl
 
-│   ├── test\_kernel\_live.py
+&#x20;   │   ├── kernel\_results.pkl
 
-│   └── plot\_results.py
+&#x20;   │   └── pca.pkl
 
-│
+&#x20;   │
 
-├── compare\_methods.py
+&#x20;   ├── compare\_methods.py
 
-├── final\_comparison\_chart.png
+&#x20;   ├── final\_comparison\_chart.png
 
-├── radar\_comparison.png
+&#x20;   ├── radar\_comparison.png
 
-├── requirements.txt
+&#x20;   ├── requirements.txt
 
-└── README.md
+&#x20;   └── README.md
 
-🛠️ Technologies
 
-Python
 
-OpenCV
+\## Technologies Used
 
-NumPy
 
-Pandas
 
-Scikit-learn
+\- Python
 
-PennyLane
+\- OpenCV
 
-PCA
+\- NumPy
 
-Support Vector Machine
+\- Pandas
 
-Matplotlib
+\- Scikit-learn
 
-Seaborn
+\- PennyLane
 
-Joblib
+\- PCA
 
-⚙️ Installation
+\- Support Vector Machine
+
+\- Matplotlib
+
+\- Seaborn
+
+\- Joblib
+
+
+
+\## Installation
 
 
 
@@ -180,9 +272,9 @@ Clone the repository:
 
 
 
-git clone https://github.com/sarvani-2005/Face-Recognition-Quantum.git
+&#x20;   git clone https://github.com/sarvani-2005/Face-Recognition-Quantum.git
 
-cd Face-Recognition-Quantum
+&#x20;   cd Face-Recognition-Quantum
 
 
 
@@ -190,49 +282,65 @@ Install the required dependencies:
 
 
 
-pip install -r requirements.txt
-
-▶️ Running the Project
-
-Method 1 — VQC
-
-cd method1-vqc
-
-python train.py
-
-python live\_test.py
-
-Method 2 — Quantum Kernel + SVM
-
-cd method2-qkernel
-
-python train\_kernel.py
-
-python test\_kernel\_live.py
-
-📷 Real-Time Recognition
+&#x20;   pip install -r requirements.txt
 
 
 
-Both approaches support webcam-based face recognition using their respective trained quantum models.
+\## Running the Project
 
 
 
-🚀 Future Improvements
+\### VQC
 
-Increase the size and diversity of the dataset
 
-Improve feature extraction
 
-Integrate Vision Transformer (ViT) based feature extraction
+&#x20;   cd method1-vqc
 
-Experiment with additional quantum classifiers
+&#x20;   python train.py
 
-Test on larger face datasets
+&#x20;   python live\_test.py
 
-Improve real-time recognition performance
 
-👩‍💻 Author
+
+\### Quantum Kernel + SVM
+
+
+
+&#x20;   cd method2-qkernel
+
+&#x20;   python train\_kernel.py
+
+&#x20;   python test\_kernel\_live.py
+
+
+
+\## Real-Time Face Recognition
+
+
+
+Both approaches include webcam-based testing. The captured face is processed using the corresponding preprocessing pipeline and classified using the trained model.
+
+
+
+\## Future Improvements
+
+
+
+\- Increase the size and diversity of the dataset
+
+\- Improve feature extraction
+
+\- Integrate Vision Transformer (ViT) based feature extraction
+
+\- Experiment with additional quantum classifiers
+
+\- Evaluate the models on larger face datasets
+
+\- Improve real-time recognition performance
+
+
+
+\## Author
 
 
 
@@ -240,5 +348,5 @@ Sarvani Kosaraju
 
 
 
-B.Tech – Artificial Intelligence and Machine Learning
+B.Tech - Artificial Intelligence and Machine Learning
 
