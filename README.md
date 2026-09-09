@@ -6,9 +6,9 @@ A Quantum Machine Learning based face recognition project that implements and co
 
 
 
-\* \*\*Variational Quantum Classifier (VQC)\*\*
+\- \*\*Variational Quantum Classifier (VQC)\*\*
 
-\* \*\*Quantum Kernel + Support Vector Machine (SVM)\*\*
+\- \*\*Quantum Kernel + Support Vector Machine (SVM)\*\*
 
 
 
@@ -28,39 +28,11 @@ To explore and compare quantum machine learning approaches for face recognition 
 
 
 
-```text
+\*\*Workflow:\*\*
 
-Face Image
 
-&#x20;   ↓
 
-Grayscale Conversion
-
-&#x20;   ↓
-
-Image Resizing
-
-&#x20;   ↓
-
-Feature Extraction
-
-&#x20;   ↓
-
-Feature Scaling
-
-&#x20;   ↓
-
-Quantum Circuit
-
-&#x20;   ↓
-
-VQC
-
-&#x20;   ↓
-
-Prediction
-
-```
+Face Image → Grayscale → Resize → Feature Extraction → Feature Scaling → Quantum Circuit → VQC → Prediction
 
 
 
@@ -68,39 +40,11 @@ Prediction
 
 
 
-```text
+\*\*Workflow:\*\*
 
-Face Image
 
-&#x20;   ↓
 
-Grayscale Conversion
-
-&#x20;   ↓
-
-Image Resizing
-
-&#x20;   ↓
-
-Feature Extraction
-
-&#x20;   ↓
-
-PCA
-
-&#x20;   ↓
-
-Quantum Kernel
-
-&#x20;   ↓
-
-SVM
-
-&#x20;   ↓
-
-Prediction
-
-```
+Face Image → Grayscale → Resize → Feature Extraction → PCA → Quantum Kernel → SVM → Prediction
 
 
 
@@ -132,8 +76,6 @@ dataset/
 
 │   └── ...
 
-│
-
 └── Person\_2/
 
 &#x20;   ├── image1.jpg
@@ -142,29 +84,23 @@ dataset/
 
 &#x20;   └── ...
 
-```
-
 
 
 The images are converted to grayscale, resized, and transformed into numerical features before being passed to the quantum models.
 
 
 
-\## 📈 Results
+📈 Results
+
+Method	Accuracy	AUC
+
+VQC	70%	0.6689
+
+Quantum Kernel + SVM	60%	0.6044
 
 
 
-| Method               | Accuracy |    AUC |
-
-| -------------------- | -------: | -----: |
-
-| VQC                  |      70% | 0.6689 |
-
-| Quantum Kernel + SVM |      60% | 0.6044 |
-
-
-
-The \*\*VQC approach achieved better performance\*\* on the selected dataset.
+VQC achieved better performance on the selected dataset.
 
 
 
@@ -172,15 +108,9 @@ The repository also contains the generated evaluation and comparison visualizati
 
 
 
-\## 📁 Project Structure
-
-
-
-```text
+📁 Project Structure
 
 Face-Recognition-Quantum/
-
-│
 
 ├── method1-vqc/
 
@@ -218,39 +148,31 @@ Face-Recognition-Quantum/
 
 └── README.md
 
-```
+🛠️ Technologies
 
+Python
 
+OpenCV
 
-\## 🛠️ Technologies
+NumPy
 
+Pandas
 
+Scikit-learn
 
-\* Python
+PennyLane
 
-\* OpenCV
+PCA
 
-\* NumPy
+Support Vector Machine
 
-\* Pandas
+Matplotlib
 
-\* Scikit-learn
+Seaborn
 
-\* PennyLane
+Joblib
 
-\* PCA
-
-\* SVM
-
-\* Matplotlib
-
-\* Seaborn
-
-\* Joblib
-
-
-
-\## ⚙️ Installation
+⚙️ Installation
 
 
 
@@ -258,13 +180,9 @@ Clone the repository:
 
 
 
-```bash
-
 git clone https://github.com/sarvani-2005/Face-Recognition-Quantum.git
 
 cd Face-Recognition-Quantum
-
-```
 
 
 
@@ -272,23 +190,11 @@ Install the required dependencies:
 
 
 
-```bash
-
 pip install -r requirements.txt
 
-```
+▶️ Running the Project
 
-
-
-\## ▶️ Running the Project
-
-
-
-\### Method 1 – VQC
-
-
-
-```bash
+Method 1 — VQC
 
 cd method1-vqc
 
@@ -296,15 +202,7 @@ python train.py
 
 python live\_test.py
 
-```
-
-
-
-\### Method 2 – Quantum Kernel
-
-
-
-```bash
+Method 2 — Quantum Kernel + SVM
 
 cd method2-qkernel
 
@@ -312,11 +210,7 @@ python train\_kernel.py
 
 python test\_kernel\_live.py
 
-```
-
-
-
-\## 📷 Real-Time Recognition
+📷 Real-Time Recognition
 
 
 
@@ -324,33 +218,27 @@ Both approaches support webcam-based face recognition using their respective tra
 
 
 
-\## 🚀 Future Improvements
+🚀 Future Improvements
+
+Increase the size and diversity of the dataset
+
+Improve feature extraction
+
+Integrate Vision Transformer (ViT) based feature extraction
+
+Experiment with additional quantum classifiers
+
+Test on larger face datasets
+
+Improve real-time recognition performance
+
+👩‍💻 Author
 
 
 
-\* Increase the size and diversity of the dataset
-
-\* Improve feature extraction
-
-\* Integrate Vision Transformer (ViT) based feature extraction
-
-\* Experiment with additional quantum classifiers
-
-\* Test on larger face datasets
-
-\* Improve real-time recognition performance
-
-
-
-\## 👩‍💻 Author
-
-
-
-\*\*Sarvani Kosaraju\*\*
+Sarvani Kosaraju
 
 
 
 B.Tech – Artificial Intelligence and Machine Learning
-
-
 
