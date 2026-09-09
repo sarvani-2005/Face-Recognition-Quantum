@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+genv/
+qenv/
+env/
+.venv/
+
+# Dataset
+*/dataset/
+
+# Temporary files
+temp.jpg
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
